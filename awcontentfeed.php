@@ -17,7 +17,6 @@
  * @copyright 2025 Axelweb
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
  */
-
 if (!defined('_PS_VERSION_')) {
     exit;
 }
@@ -120,6 +119,7 @@ class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\
      *
      * @param string|null $hookName Hook name
      * @param array $configuration Widget configuration
+     *
      * @return string Rendered widget HTML
      */
     public function renderWidget($hookName = null, array $configuration = []): string
@@ -144,15 +144,16 @@ class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\
      *
      * @param string|null $hookName Hook name
      * @param array $configuration Widget configuration
+     *
      * @return array Widget variables
      */
     public function getWidgetVariables($hookName = null, array $configuration = []): array
     {
         $repository = new ContentFeedItemRepository();
-        
+
         // Get all active items
         $allItems = $repository->findAll();
-        
+
         // Filter only active items
         $activeItems = array_filter($allItems, function ($item) {
             return (bool) $item['active'];

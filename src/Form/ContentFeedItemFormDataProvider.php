@@ -41,7 +41,7 @@ class ContentFeedItemFormDataProvider implements FormDataProviderInterface
         // If editing, load existing data
         if ($this->editId) {
             $item = $this->repository->findById($this->editId);
-            
+
             if ($item) {
                 return [
                     'type' => $item['type'],

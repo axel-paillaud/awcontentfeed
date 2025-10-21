@@ -22,9 +22,6 @@ declare(strict_types=1);
 
 namespace Axelweb\AwContentFeed\Repository;
 
-use Db;
-use DbQuery;
-
 class ContentFeedItemRepository
 {
     /**
@@ -34,12 +31,12 @@ class ContentFeedItemRepository
      */
     public function findAll(): array
     {
-        $query = new DbQuery();
+        $query = new \DbQuery();
         $query->select('*')
             ->from('awcontentfeed_item')
             ->orderBy('position ASC, date_add DESC');
 
-        $results = Db::getInstance()->executeS($query);
+        $results = \Db::getInstance()->executeS($query);
 
         return $results ?: [];
     }
@@ -48,16 +45,17 @@ class ContentFeedItemRepository
      * Find a content feed item by ID
      *
      * @param int $id
+     *
      * @return array|null
      */
     public function findById(int $id): ?array
     {
-        $query = new DbQuery();
+        $query = new \DbQuery();
         $query->select('*')
             ->from('awcontentfeed_item')
             ->where('id_awcontentfeed_item = ' . (int) $id);
 
-        $result = Db::getInstance()->getRow($query);
+        $result = \Db::getInstance()->getRow($query);
 
         return $result ?: null;
     }
@@ -66,12 +64,13 @@ class ContentFeedItemRepository
      * Create a new content feed item
      *
      * @param array $data
+     *
      * @return bool|int Returns the inserted ID on success, false on failure
      */
     public function create(array $data): bool
     {
         $now = date('Y-m-d H:i:s');
-        
+
         $insertData = [
             'type' => pSQL($data['type']),
             'url' => pSQL($data['url']),
@@ -84,7 +83,7 @@ class ContentFeedItemRepository
             'date_upd' => $now,
         ];
 
-        return Db::getInstance()->insert('awcontentfeed_item', $insertData);
+        return \Db::getInstance()->insert('awcontentfeed_item', $insertData);
     }
 
     /**
@@ -92,6 +91,7 @@ class ContentFeedItemRepository
      *
      * @param int $id
      * @param array $data
+     *
      * @return bool
      */
     public function update(int $id, array $data): bool
@@ -122,7 +122,7 @@ class ContentFeedItemRepository
             $updateData['active'] = (int) $data['active'];
         }
 
-        return Db::getInstance()->update(
+        return \Db::getInstance()->update(
             'awcontentfeed_item',
             $updateData,
             'id_awcontentfeed_item = ' . (int) $id
@@ -133,11 +133,12 @@ class ContentFeedItemRepository
      * Delete a content feed item by ID
      *
      * @param int $id
+     *
      * @return bool
      */
     public function delete(int $id): bool
     {
-        return Db::getInstance()->delete(
+        return \Db::getInstance()->delete(
             'awcontentfeed_item',
             'id_awcontentfeed_item = ' . (int) $id
         );
@@ -147,12 +148,13 @@ class ContentFeedItemRepository
      * Toggle active status of a content feed item
      *
      * @param int $id
+     *
      * @return bool
      */
     public function toggleActive(int $id): bool
     {
         $item = $this->findById($id);
-        
+
         if (!$item) {
             return false;
         }
@@ -169,11 +171,11 @@ class ContentFeedItemRepository
      */
     public function getNextPosition(): int
     {
-        $query = new DbQuery();
+        $query = new \DbQuery();
         $query->select('MAX(position)')
             ->from('awcontentfeed_item');
 
-        $maxPosition = (int) Db::getInstance()->getValue($query);
+        $maxPosition = (int) \Db::getInstance()->getValue($query);
 
         return $maxPosition + 1;
     }

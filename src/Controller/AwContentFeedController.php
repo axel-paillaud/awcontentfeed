@@ -52,6 +52,7 @@ class AwContentFeedController extends FrameworkBundleAdminController
 
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Content feed item saved successfully.', 'Modules.Awcontentfeed.Admin'));
+
                 return $this->redirectToRoute('awcontentfeed_configuration');
             }
 
@@ -71,6 +72,7 @@ class AwContentFeedController extends FrameworkBundleAdminController
 
         if (!$item) {
             $this->addFlash('error', $this->trans('Content feed item not found.', 'Modules.Awcontentfeed.Admin'));
+
             return $this->redirectToRoute('awcontentfeed_configuration');
         }
 
@@ -106,6 +108,7 @@ class AwContentFeedController extends FrameworkBundleAdminController
 
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Content feed item updated successfully.', 'Modules.Awcontentfeed.Admin'));
+
                 return $this->redirectToRoute('awcontentfeed_configuration');
             }
 

@@ -29,6 +29,7 @@ class MetadataFetcherService
      *
      * @param string $url Content URL
      * @param string $type Content type (youtube or wordpress)
+     *
      * @return array Metadata (title, description, thumbnail)
      */
     public function fetch(string $url, string $type): array
@@ -52,6 +53,7 @@ class MetadataFetcherService
      * Fetch YouTube video metadata using oEmbed API
      *
      * @param string $url YouTube video URL
+     *
      * @return array Metadata
      */
     public function fetchYoutubeMetadata(string $url): array
@@ -93,6 +95,7 @@ class MetadataFetcherService
      * Fetch WordPress article metadata using Open Graph tags
      *
      * @param string $url WordPress article URL
+     *
      * @return array Metadata
      */
     public function fetchWordPressMetadata(string $url): array
@@ -133,6 +136,7 @@ class MetadataFetcherService
      * Extract YouTube video ID from URL
      *
      * @param string $url YouTube URL
+     *
      * @return string|null Video ID
      */
     private function extractYoutubeVideoId(string $url): ?string
@@ -152,6 +156,7 @@ class MetadataFetcherService
      * @param string $html HTML content
      * @param string $property Meta property name
      * @param bool $isOgTag Whether it's an Open Graph tag
+     *
      * @return string|null Meta tag content
      */
     private function extractMetaTag(string $html, string $property, bool $isOgTag = true): ?string
@@ -175,6 +180,7 @@ class MetadataFetcherService
      * Fetch URL content using cURL or file_get_contents
      *
      * @param string $url URL to fetch
+     *
      * @return string|false URL content or false on failure
      */
     private function fetchUrl(string $url)
@@ -232,6 +238,7 @@ class MetadataFetcherService
      *
      * @param string $text Text to truncate
      * @param int $length Maximum length
+     *
      * @return string Truncated text
      */
     private function truncateText(string $text, int $length): string
