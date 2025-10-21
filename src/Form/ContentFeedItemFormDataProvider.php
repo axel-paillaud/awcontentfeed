@@ -76,11 +76,14 @@ class ContentFeedItemFormDataProvider implements FormDataProviderInterface
             return $errors;
         }
 
-        // Prepare data for save
+        // Prepare data for save (including metadata from controller)
         $saveData = [
             'type' => $data['type'],
             'url' => $data['url'],
             'active' => isset($data['active']) ? (int) $data['active'] : 0,
+            'title' => $data['title'] ?? null,
+            'description' => $data['description'] ?? null,
+            'thumbnail' => $data['thumbnail'] ?? null,
         ];
 
         // Update or create

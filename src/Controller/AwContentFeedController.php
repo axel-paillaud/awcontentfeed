@@ -39,7 +39,16 @@ class AwContentFeedController extends FrameworkBundleAdminController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $errors = $formDataHandler->save($form->getData());
+            $formData = $form->getData();
+
+            // Fetch metadata before saving
+            $metadataFetcher = $this->get('axelweb.awcontentfeed.service.metadata_fetcher');
+            $metadata = $metadataFetcher->fetch($formData['url'], $formData['type']);
+
+            // Merge metadata with form data
+            $formData = array_merge($formData, $metadata);
+
+            $errors = $formDataHandler->save($formData);
 
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Content feed item saved successfully.', 'Modules.Awcontentfeed.Admin'));
@@ -84,7 +93,16 @@ class AwContentFeedController extends FrameworkBundleAdminController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $errors = $formDataHandler->save($form->getData());
+            $formData = $form->getData();
+
+            // Fetch metadata before saving
+            $metadataFetcher = $this->get('axelweb.awcontentfeed.service.metadata_fetcher');
+            $metadata = $metadataFetcher->fetch($formData['url'], $formData['type']);
+
+            // Merge metadata with form data
+            $formData = array_merge($formData, $metadata);
+
+            $errors = $formDataHandler->save($formData);
 
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Content feed item updated successfully.', 'Modules.Awcontentfeed.Admin'));

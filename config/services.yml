@@ -6,6 +6,10 @@ services:
   axelweb.awcontentfeed.repository.content_feed_item:
     class: 'Axelweb\AwContentFeed\Repository\ContentFeedItemRepository'
 
+  # Services
+  axelweb.awcontentfeed.service.metadata_fetcher:
+    class: 'Axelweb\AwContentFeed\Service\MetadataFetcherService'
+
   # Content Feed Item form type
   axelweb.awcontentfeed.form.type.content_feed_item:
     class: 'Axelweb\AwContentFeed\Form\ContentFeedItemFormType'
