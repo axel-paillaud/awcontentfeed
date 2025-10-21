@@ -106,9 +106,9 @@ class MetadataFetcherService
             }
 
             // Parse Open Graph tags
-            $title = $this->extractMetaTag($html, 'og:title');
-            $description = $this->extractMetaTag($html, 'og:description');
-            $thumbnail = $this->extractMetaTag($html, 'og:image');
+            $title = $this->extractMetaTag($html, 'title');
+            $description = $this->extractMetaTag($html, 'description');
+            $thumbnail = $this->extractMetaTag($html, 'image');
 
             // Fallback to standard meta tags if OG tags not found
             if (!$title) {
