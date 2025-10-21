@@ -75,13 +75,13 @@ class MetadataFetcherService
 
             // Extract video ID for high-quality thumbnail
             $videoId = $this->extractYoutubeVideoId($url);
-            $thumbnail = $videoId 
+            $thumbnail = $videoId
                 ? "https://img.youtube.com/vi/{$videoId}/maxresdefault.jpg"
                 : ($data['thumbnail_url'] ?? null);
 
             return [
                 'title' => $data['title'] ?? null,
-                'description' => $data['author_name'] ?? null, // Channel name as description
+                'description' => null, // YouTube oEmbed doesn't provide video description
                 'thumbnail' => $thumbnail,
             ];
         } catch (\Exception $e) {
@@ -138,7 +138,7 @@ class MetadataFetcherService
     private function extractYoutubeVideoId(string $url): ?string
     {
         $pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i';
-        
+
         if (preg_match($pattern, $url, $matches)) {
             return $matches[1];
         }
@@ -188,7 +188,7 @@ class MetadataFetcherService
             curl_setopt($ch, CURLOPT_TIMEOUT, 10);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; AwContentFeed/1.0)');
-            
+
             $response = curl_exec($ch);
             $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             curl_close($ch);
