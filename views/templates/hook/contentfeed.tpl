@@ -29,15 +29,15 @@
 
         <div class="row g-4">
             {foreach from=$items item=item}
-                <div class="col-12 col-md-6 col-lg-4">
-                    <a href="{$item.url|escape:'html':'UTF-8'}" 
-                       target="_blank" 
+                <div class="col-12 col-md-6 col-xl-4">
+                    <a href="{$item.url|escape:'html':'UTF-8'}"
+                       target="_blank"
                        rel="noopener noreferrer"
                        class="awcontentfeed-card-link">
                         <div class="card h-100 awcontentfeed-card">
                             {if $item.thumbnail}
-                                <img src="{$item.thumbnail|escape:'html':'UTF-8'}" 
-                                     class="card-img-top" 
+                                <img src="{$item.thumbnail|escape:'html':'UTF-8'}"
+                                     class="card-img-top"
                                      alt="{$item.title|escape:'html':'UTF-8'}"
                                      loading="lazy">
                             {else}
