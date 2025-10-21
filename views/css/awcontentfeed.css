@@ -22,6 +22,13 @@
     background-color: #f8f9fa;
 }
 
+/* Card Link Wrapper */
+.awcontentfeed-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 /* Card Styles */
 .awcontentfeed-card {
     border: none;
