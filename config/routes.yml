@@ -1,0 +1,8 @@
+awcontentfeed_configuration:
+  path: /awcontentfeed/configuration
+  methods: [GET, POST]
+  defaults:
+    _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::index'
+    # Needed to work with tab system
+    _legacy_controller: AdminAwContentFeed
+    _legacy_link: AdminAwContentFeed

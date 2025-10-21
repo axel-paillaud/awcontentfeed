@@ -22,6 +22,8 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 class AwContentFeed extends Module
 {
     public function __construct()
@@ -90,6 +92,7 @@ class AwContentFeed extends Module
 
     public function getContent(): void
     {
-        Tools::redirectAdmin($this->context->link->getAdminLink('AdminModules', true) . '&configure=' . $this->name);
+        $route = $this->get('router')->generate('awcontentfeed_configuration');
+        Tools::redirectAdmin($route);
     }
 }
