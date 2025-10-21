@@ -19,7 +19,7 @@
 
 /* Content Feed Section */
 .awcontentfeed {
-    background-color: #f8f9fa;
+    /* Inherit background from theme */
 }
 
 /* Card Link Wrapper */
