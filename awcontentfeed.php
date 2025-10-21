@@ -45,7 +45,7 @@ class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\
         $this->confirmUninstall = $this->trans('Are you sure you want to uninstall this module?', [], 'Modules.Awcontentfeed.Admin');
 
         $this->ps_versions_compliancy = [
-            'min' => '1.7.0.0',
+            'min' => '1.7.8.0',
             'max' => '8.99.99',
         ];
     }

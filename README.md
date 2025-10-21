@@ -38,8 +38,7 @@ awcontentfeed/
 │   │   └── AwContentFeedController.php
 │   ├── Form/
 │   │   ├── ContentFeedItemFormType.php
-│   │   ├── ContentFeedItemFormDataProvider.php
-│   │   └── (old General* files removed)
+│   │   └── ContentFeedItemFormDataProvider.php
 │   ├── Repository/
 │   │   └── ContentFeedItemRepository.php
 │   └── Service/
@@ -139,8 +138,8 @@ Use when source content changes:
 
 ## Technical Details
 
-- **PrestaShop**: 8.x compatible (min 1.7.0.0)
-- **PHP**: ≥ 7.1
+- **PrestaShop**: 8.x compatible (min 1.7.8.0)
+- **PHP**: ≥ 7.4
 - **Symfony**: Forms, routes, services
 - **Translation**: New system (domain-based)
 - **JavaScript**: Vanilla (no jQuery), ES6 syntax
