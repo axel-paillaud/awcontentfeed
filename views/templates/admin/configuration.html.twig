@@ -105,6 +105,13 @@
                                             </a>
                                             <button type="button"
                                                     class="btn btn-sm btn-outline-secondary"
+                                                    title="{{ 'Refresh metadata'|trans({}, 'Admin.Actions') }}"
+                                                    data-action="refresh"
+                                                    data-form-id="refresh-form-{{ item.id_awcontentfeed_item }}">
+                                                <i class="material-icons">refresh</i>
+                                            </button>
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-secondary"
                                                     title="{{ item.active ? 'Deactivate'|trans({}, 'Admin.Actions') : 'Activate'|trans({}, 'Admin.Actions') }}"
                                                     data-action="toggle"
                                                     data-form-id="toggle-form-{{ item.id_awcontentfeed_item }}">
@@ -119,6 +126,7 @@
                                                 <i class="material-icons">delete</i>
                                             </button>
                                         </div>
+                                        <form id="refresh-form-{{ item.id_awcontentfeed_item }}" method="post" action="{{ path('awcontentfeed_item_refresh', {'id': item.id_awcontentfeed_item}) }}" style="display: none;"></form>
                                         <form id="toggle-form-{{ item.id_awcontentfeed_item }}" method="post" action="{{ path('awcontentfeed_item_toggle', {'id': item.id_awcontentfeed_item}) }}" style="display: none;"></form>
                                         <form id="delete-form-{{ item.id_awcontentfeed_item }}" method="post" action="{{ path('awcontentfeed_item_delete', {'id': item.id_awcontentfeed_item}) }}" style="display: none;"></form>
                                     </td>

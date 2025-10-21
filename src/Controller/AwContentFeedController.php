@@ -162,4 +162,29 @@ class AwContentFeedController extends FrameworkBundleAdminController
 
         return $this->redirectToRoute('awcontentfeed_configuration');
     }
+
+    public function refresh(Request $request, int $id): Response
+    {
+        $repository = $this->get('axelweb.awcontentfeed.repository.content_feed_item');
+        $item = $repository->findById($id);
+
+        if (!$item) {
+            $this->addFlash('error', $this->trans('Content feed item not found.', 'Modules.Awcontentfeed.Admin'));
+        } else {
+            // Fetch fresh metadata
+            $metadataFetcher = $this->get('axelweb.awcontentfeed.service.metadata_fetcher');
+            $metadata = $metadataFetcher->fetch($item['url'], $item['type']);
+
+            // Update item with fresh metadata
+            $success = $repository->update($id, $metadata);
+
+            if ($success) {
+                $this->addFlash('success', $this->trans('Metadata refreshed successfully.', 'Modules.Awcontentfeed.Admin'));
+            } else {
+                $this->addFlash('error', $this->trans('An error occurred while refreshing metadata.', 'Modules.Awcontentfeed.Admin'));
+            }
+        }
+
+        return $this->redirectToRoute('awcontentfeed_configuration');
+    }
 }

@@ -34,6 +34,18 @@
             });
         });
 
+        // Handle refresh metadata
+        document.querySelectorAll('[data-action="refresh"]').forEach(function (button) {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                const formId = this.getAttribute('data-form-id');
+                const form = document.getElementById(formId);
+                if (form) {
+                    form.submit();
+                }
+            });
+        });
+
         // Handle delete with confirmation
         document.querySelectorAll('[data-action="delete"]').forEach(function (button) {
             button.addEventListener('click', function (e) {

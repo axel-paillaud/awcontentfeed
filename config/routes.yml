@@ -30,3 +30,11 @@ awcontentfeed_item_toggle:
     _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::toggle'
   requirements:
     id: \d+
+
+awcontentfeed_item_refresh:
+  path: /awcontentfeed/item/{id}/refresh
+  methods: [POST]
+  defaults:
+    _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::refresh'
+  requirements:
+    id: \d+
