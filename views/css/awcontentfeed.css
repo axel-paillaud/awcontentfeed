@@ -1,0 +1,120 @@
+/**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License version 3.0
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * @author    Axelweb <contact@axelweb.fr>
+ * @copyright 2025 Axelweb
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+ */
+
+/* Content Feed Section */
+.awcontentfeed {
+    background-color: #f8f9fa;
+}
+
+/* Card Styles */
+.awcontentfeed-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.awcontentfeed-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.awcontentfeed-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Placeholder for items without thumbnail */
+.awcontentfeed-placeholder {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.awcontentfeed-placeholder .material-icons {
+    font-size: 64px;
+    opacity: 0.9;
+}
+
+/* Type Badge */
+.awcontentfeed-type .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+.awcontentfeed-type .badge .material-icons {
+    font-size: 16px;
+}
+
+/* Card Body */
+.awcontentfeed-card .card-body {
+    padding: 1.5rem;
+}
+
+.awcontentfeed-card .card-title {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+}
+
+.awcontentfeed-card .card-text {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Button */
+.awcontentfeed-card .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.3s ease;
+}
+
+.awcontentfeed-card .btn .material-icons {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.awcontentfeed-card .btn:hover .material-icons {
+    transform: translateX(4px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .awcontentfeed-card .card-img-top,
+    .awcontentfeed-placeholder {
+        height: 180px;
+    }
+
+    .awcontentfeed-card .card-body {
+        padding: 1.25rem;
+    }
+}

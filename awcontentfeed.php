@@ -63,7 +63,9 @@ class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\
         }
 
         $installed = parent::install()
-            && $this->installDb();
+            && $this->installDb()
+            && $this->registerHook('displayHome')
+            && $this->registerHook('actionFrontControllerSetMedia');
 
         if ($installed) {
             Tools::clearSf2Cache();
@@ -96,6 +98,21 @@ class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\
     {
         $route = $this->get('router')->generate('awcontentfeed_configuration');
         Tools::redirectAdmin($route);
+    }
+
+    /**
+     * Hook to register CSS on front-office pages
+     */
+    public function hookActionFrontControllerSetMedia()
+    {
+        $this->context->controller->registerStylesheet(
+            'module-awcontentfeed-style',
+            'modules/' . $this->name . '/views/css/awcontentfeed.css',
+            [
+                'media' => 'all',
+                'priority' => 200,
+            ]
+        );
     }
 
     /**
