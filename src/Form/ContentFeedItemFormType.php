@@ -23,10 +23,10 @@ declare(strict_types=1);
 namespace Axelweb\AwContentFeed\Form;
 
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
+use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -62,11 +62,10 @@ class ContentFeedItemFormType extends TranslatorAwareType
                     'placeholder' => 'https://www.youtube.com/watch?v=... or https://example.com/article',
                 ],
             ])
-            ->add('active', CheckboxType::class, [
+            ->add('active', SwitchType::class, [
                 'label' => $this->trans('Active', 'Modules.Awcontentfeed.Admin'),
                 'help' => $this->trans('Display this content on the front-office', 'Modules.Awcontentfeed.Admin'),
                 'required' => false,
-                'data' => true,
             ]);
     }
 }
