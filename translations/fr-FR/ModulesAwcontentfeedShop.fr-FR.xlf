@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin631bbhd1g58oyfcjcfp" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="1398b37ced79c47593a6e8223d43b36b">
+        <source>Our Latest Content</source>
+        <target>Nos derniers contenus</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="34e2d1989a1dbf75cd631596133ee5ee">
+        <source>Video</source>
+        <target>Video</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="5e2f8ee473fdebc99fef4dc9e7ee3146">
+        <source>Article</source>
+        <target>Article</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="93c433787599e3c6a61c27c9faad7cb1">
+        <source>Watch Video</source>
+        <target>Regarder la vidéo</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="aa6ce6a2d7b62d654fef515272ee94b0">
+        <source>Read Article</source>
+        <target>Lire l'article</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

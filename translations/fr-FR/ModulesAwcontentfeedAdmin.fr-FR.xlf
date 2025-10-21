@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="admin631bbhd1g58oyfcjcfp" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="530e288b10b1ca59afdfe6b0c932ff5d">
+        <source>Content feed item saved successfully.</source>
+        <target>L'élément de flux de contenu a été enregistré avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="3403454e2558cb573d100d2c8310619e">
+        <source>Content feed item not found.</source>
+        <target>Élément de flux de contenu introuvable.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="cbfdf924d86ccd956813c8c50e19bd56">
+        <source>Content feed item updated successfully.</source>
+        <target>L'élément de flux de contenu a été mis à jour avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a038e5504096d548658b72ec511865c8">
+        <source>Content feed item deleted successfully.</source>
+        <target>L'élément de flux de contenu a été supprimé avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c82401ba5f78629e52c18d227a9ef22c">
+        <source>An error occurred while deleting the content feed item.</source>
+        <target>Une erreur s'est produite lors de la suppression de l'élément de flux de contenu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a98189c6c11dbdc9410e7419e9ecc918">
+        <source>Content feed item activated successfully.</source>
+        <target>L'élément de flux de contenu a été activé avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2bd5f31f4f8a89c236d52a13bc73c3ed">
+        <source>Content feed item deactivated successfully.</source>
+        <target>L'élément de flux de contenu a été désactivé avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e1f6058a459f5d66cbd7ba74943ad992">
+        <source>An error occurred while updating the content feed item.</source>
+        <target>Une erreur s'est produite lors de la mise à jour de l'élément de flux de contenu.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a945fa2637def257f3b69a3eda8cd3d1">
+        <source>Metadata refreshed successfully.</source>
+        <target>Les métadonnées ont été actualisées avec succès.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="faf82762221128e0809f6d915c3f8f79">
+        <source>An error occurred while refreshing metadata.</source>
+        <target>Une erreur s'est produite lors de l'actualisation des métadonnées.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2effa58f13159d138a634233e246713d">
+        <source>Content Type</source>
+        <target>Type de contenu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="a917ebda4b29021399a9a8400c1c3f12">
+        <source>Select the type of content (YouTube video or WordPress article)</source>
+        <target>Sélectionnez le type de contenu (vidéo YouTube ou article WordPress)</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="0c4158cf22098751d31785fe58af5488">
+        <source>YouTube Video</source>
+        <target>Vidéo YouTube</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="9b0db5c55a247d5e1fdd91b673ac4931">
+        <source>WordPress Article</source>
+        <target>Article WordPress</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="93390930550e0b8fa85206312ba938ce">
+        <source>Choose a type...</source>
+        <target>Choisissez un type...</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="e6b391a8d2c4d45902a23a8b6585703d">
+        <source>URL</source>
+        <target>URL</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="ed33de7b6d78788eb785b3719aefd551">
+        <source>Enter the URL of the YouTube video or WordPress article</source>
+        <target>Saisissez l'URL de la vidéo YouTube ou de l'article WordPress</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4d3d769b812b6faa6b76e1a8abaece2d">
+        <source>Active</source>
+        <target>Activé</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="04904dedc68f693e19a8083fb26f1810">
+        <source>Display this content on the front-office</source>
+        <target>Afficher ce contenu sur le front-office</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="36fecbdc65e257dfb06e951b5b9e3b35">
+        <source>Content Feed</source>
+        <target>Content Feed</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="fee0a6b3f92dd8601ff9195df8e1d638">
+        <source>Display YouTube videos and WordPress articles in your store.</source>
+        <target>Affichez des vidéos YouTube et des articles WordPress dans votre boutique.</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="bb8956c67b82c7444a80c6b2433dd8b4">
+        <source>Are you sure you want to uninstall this module?</source>
+        <target>Êtes-vous sûr de vouloir désinstaller ce module ?</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="c2101d5a9eca6a6633da3afc347cc235">
+        <source>Edit Content Feed Item</source>
+        <target>Modifier un élément de flux de contenu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="db9ac83fc57b35cef59a6a1346c87ecb">
+        <source>Add Content Feed Item</source>
+        <target>Ajouter un élément de flux de contenu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="4811135d689c4a089a8f7b86ac788713">
+        <source>Content Feed Items</source>
+        <target>Éléments de flux de contenu</target>
+        <note>Line: </note>
+      </trans-unit>
+      <trans-unit id="2d320e61185f02e4a599a105cea1609a">
+        <source>No content feed items yet. Add your first YouTube video or WordPress article!</source>
+        <target>Aucun élément de flux de contenu pour le moment. Ajoutez votre première vidéo YouTube ou article WordPress !</target>
+        <note>Line: </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
