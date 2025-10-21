@@ -2,6 +2,8 @@
 
 Display YouTube videos and WordPress articles on your PrestaShop store.
 
+🔗 **[Live Demo](https://demo.axelweb.fr/)** - See it in action on demo.axelweb.fr
+
 ## Screenshots
 
 ### Front-office Display (Hummingbird Theme)
