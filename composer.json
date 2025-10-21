@@ -1,0 +1,25 @@
+{
+  "name": "axelweb/awcontentfeed",
+  "description": "PrestaShop module for displaying YouTube videos and WordPress articles",
+  "type": "prestashop-module",
+  "license": "AFL-3.0",
+  "authors": [
+    {
+      "name": "Axelweb",
+      "email": "contact@axelweb.fr"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Axelweb\\AwContentFeed\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.1"
+  },
+  "config": {
+    "platform": {
+      "php": "7.1"
+    }
+  }
+}
