@@ -24,7 +24,9 @@ if (!defined('_PS_VERSION_')) {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-class AwContentFeed extends Module
+use Axelweb\AwContentFeed\Repository\ContentFeedItemRepository;
+
+class AwContentFeed extends Module implements PrestaShop\PrestaShop\Core\Module\WidgetInterface
 {
     public function __construct()
     {
@@ -94,5 +96,53 @@ class AwContentFeed extends Module
     {
         $route = $this->get('router')->generate('awcontentfeed_configuration');
         Tools::redirectAdmin($route);
+    }
+
+    /**
+     * Render the widget
+     *
+     * @param string|null $hookName Hook name
+     * @param array $configuration Widget configuration
+     * @return string Rendered widget HTML
+     */
+    public function renderWidget($hookName = null, array $configuration = []): string
+    {
+        // Get widget variables
+        $variables = $this->getWidgetVariables($hookName, $configuration);
+
+        // If no items, don't render anything
+        if (empty($variables['items'])) {
+            return '';
+        }
+
+        // Assign variables to Smarty
+        $this->smarty->assign($variables);
+
+        // Return rendered template
+        return $this->fetch('module:' . $this->name . '/views/templates/hook/contentfeed.tpl');
+    }
+
+    /**
+     * Get widget variables
+     *
+     * @param string|null $hookName Hook name
+     * @param array $configuration Widget configuration
+     * @return array Widget variables
+     */
+    public function getWidgetVariables($hookName = null, array $configuration = []): array
+    {
+        $repository = new ContentFeedItemRepository();
+        
+        // Get all active items
+        $allItems = $repository->findAll();
+        
+        // Filter only active items
+        $activeItems = array_filter($allItems, function ($item) {
+            return (bool) $item['active'];
+        });
+
+        return [
+            'items' => array_values($activeItems),
+        ];
     }
 }
