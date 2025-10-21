@@ -2,6 +2,14 @@
 
 Display YouTube videos and WordPress articles on your PrestaShop store.
 
+## Screenshots
+
+### Front-office Display (Hummingbird Theme)
+![Front-office example](screenshot-frontoffice.png)
+
+### Back-office Configuration
+![Back-office configuration](screenshot-backoffice.png)
+
 ## Features
 
 - **YouTube videos**: Automatically fetches title and thumbnail via oEmbed API (no API key required)
