@@ -33,23 +33,23 @@
                     {{ 'Add Content Feed Item'|trans({}, 'Modules.Awcontentfeed.Admin') }}
                 {% endif %}
             </h3>
-            <div class="card-body">
-                {{ form_start(itemForm) }}
+            {{ form_start(itemForm) }}
+                <div class="card-body">
                     {{ form_widget(itemForm) }}
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="material-icons">save</i>
-                            {{ 'Save'|trans({}, 'Admin.Actions') }}
-                        </button>
-                        {% if editId is defined %}
-                            <a href="{{ path('awcontentfeed_configuration') }}" class="btn btn-secondary">
-                                <i class="material-icons">cancel</i>
-                                {{ 'Cancel'|trans({}, 'Admin.Actions') }}
-                            </a>
-                        {% endif %}
-                    </div>
-                {{ form_end(itemForm) }}
-            </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="material-icons">save</i>
+                        {{ 'Save'|trans({}, 'Admin.Actions') }}
+                    </button>
+                    {% if editId is defined %}
+                        <a href="{{ path('awcontentfeed_configuration') }}" class="btn btn-secondary">
+                            <i class="material-icons">cancel</i>
+                            {{ 'Cancel'|trans({}, 'Admin.Actions') }}
+                        </a>
+                    {% endif %}
+                </div>
+            {{ form_end(itemForm) }}
         </div>
     </div>
 
