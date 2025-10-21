@@ -6,3 +6,27 @@ awcontentfeed_configuration:
     # Needed to work with tab system
     _legacy_controller: AdminAwContentFeed
     _legacy_link: AdminAwContentFeed
+
+awcontentfeed_item_edit:
+  path: /awcontentfeed/item/{id}/edit
+  methods: [GET, POST]
+  defaults:
+    _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::edit'
+  requirements:
+    id: \d+
+
+awcontentfeed_item_delete:
+  path: /awcontentfeed/item/{id}/delete
+  methods: [POST]
+  defaults:
+    _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::delete'
+  requirements:
+    id: \d+
+
+awcontentfeed_item_toggle:
+  path: /awcontentfeed/item/{id}/toggle
+  methods: [POST]
+  defaults:
+    _controller: 'Axelweb\AwContentFeed\Controller\AwContentFeedController::toggle'
+  requirements:
+    id: \d+

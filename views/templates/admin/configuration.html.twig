@@ -23,25 +23,109 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-6">
         <div class="card">
             <h3 class="card-header">
-                <i class="material-icons">settings</i>
-                {{ 'Content Feed Configuration'|trans({}, 'Modules.Awcontentfeed.Admin') }}
+                <i class="material-icons">add_circle</i>
+                {% if editId is defined %}
+                    {{ 'Edit Content Feed Item'|trans({}, 'Modules.Awcontentfeed.Admin') }}
+                {% else %}
+                    {{ 'Add Content Feed Item'|trans({}, 'Modules.Awcontentfeed.Admin') }}
+                {% endif %}
             </h3>
             <div class="card-body">
-                <p class="alert alert-info">
-                    {{ 'This is a test configuration page for the Content Feed module.'|trans({}, 'Modules.Awcontentfeed.Admin') }}
-                </p>
-
-                {{ form_start(generalForm) }}
-                    {{ form_widget(generalForm) }}
+                {{ form_start(itemForm) }}
+                    {{ form_widget(itemForm) }}
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">
+                            <i class="material-icons">save</i>
                             {{ 'Save'|trans({}, 'Admin.Actions') }}
                         </button>
+                        {% if editId is defined %}
+                            <a href="{{ path('awcontentfeed_configuration') }}" class="btn btn-secondary">
+                                <i class="material-icons">cancel</i>
+                                {{ 'Cancel'|trans({}, 'Admin.Actions') }}
+                            </a>
+                        {% endif %}
                     </div>
-                {{ form_end(generalForm) }}
+                {{ form_end(itemForm) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card">
+            <h3 class="card-header">
+                <i class="material-icons">list</i>
+                {{ 'Content Feed Items'|trans({}, 'Modules.Awcontentfeed.Admin') }}
+            </h3>
+            <div class="card-body">
+                {% if items is empty %}
+                    <p class="alert alert-info">
+                        {{ 'No content feed items yet. Add your first YouTube video or WordPress article!'|trans({}, 'Modules.Awcontentfeed.Admin') }}
+                    </p>
+                {% else %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>{{ 'Type'|trans({}, 'Admin.Global') }}</th>
+                                <th>{{ 'URL'|trans({}, 'Admin.Global') }}</th>
+                                <th>{{ 'Status'|trans({}, 'Admin.Global') }}</th>
+                                <th>{{ 'Actions'|trans({}, 'Admin.Global') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in items %}
+                                <tr>
+                                    <td>
+                                        {% if item.type == 'youtube' %}
+                                            <i class="material-icons text-danger">play_circle_filled</i> YouTube
+                                        {% else %}
+                                            <i class="material-icons text-primary">article</i> WordPress
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{{ item.url }}" target="_blank" class="text-truncate" style="max-width: 300px; display: inline-block;">
+                                            {{ item.url }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {% if item.active %}
+                                            <span class="badge badge-success">{{ 'Active'|trans({}, 'Admin.Global') }}</span>
+                                        {% else %}
+                                            <span class="badge badge-danger">{{ 'Inactive'|trans({}, 'Admin.Global') }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ path('awcontentfeed_item_edit', {'id': item.id_awcontentfeed_item}) }}" 
+                                               class="btn btn-sm btn-outline-secondary" 
+                                               title="{{ 'Edit'|trans({}, 'Admin.Actions') }}">
+                                                <i class="material-icons">edit</i>
+                                            </a>
+                                            <form method="post" action="{{ path('awcontentfeed_item_toggle', {'id': item.id_awcontentfeed_item}) }}" style="display: inline;">
+                                                <button type="submit" 
+                                                        class="btn btn-sm btn-outline-secondary" 
+                                                        title="{{ item.active ? 'Deactivate'|trans({}, 'Admin.Actions') : 'Activate'|trans({}, 'Admin.Actions') }}">
+                                                    <i class="material-icons">{{ item.active ? 'visibility_off' : 'visibility' }}</i>
+                                                </button>
+                                            </form>
+                                            <form method="post" action="{{ path('awcontentfeed_item_delete', {'id': item.id_awcontentfeed_item}) }}" 
+                                                  onsubmit="return confirm('{{ 'Are you sure you want to delete this item?'|trans({}, 'Admin.Notifications.Warning') }}')" 
+                                                  style="display: inline;">
+                                                <button type="submit" 
+                                                        class="btn btn-sm btn-outline-danger" 
+                                                        title="{{ 'Delete'|trans({}, 'Admin.Actions') }}">
+                                                    <i class="material-icons">delete</i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
             </div>
         </div>
     </div>

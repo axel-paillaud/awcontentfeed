@@ -2,31 +2,31 @@ services:
   _defaults:
     public: true
 
-  # General form type
-  axelweb.awcontentfeed.form.type.general:
-    class: 'Axelweb\AwContentFeed\Form\GeneralFormType'
+  # Repository
+  axelweb.awcontentfeed.repository.content_feed_item:
+    class: 'Axelweb\AwContentFeed\Repository\ContentFeedItemRepository'
+
+  # Content Feed Item form type
+  axelweb.awcontentfeed.form.type.content_feed_item:
+    class: 'Axelweb\AwContentFeed\Form\ContentFeedItemFormType'
     parent: 'form.type.translatable.aware'
     public: true
     tags:
       - { name: form.type }
 
-  # General data configuration
-  axelweb.awcontentfeed.form.general_data_configuration:
-    class: 'Axelweb\AwContentFeed\Form\GeneralDataConfiguration'
-    arguments: ['@prestashop.adapter.legacy.configuration']
-
-  # General form data provider
-  axelweb.awcontentfeed.form.general_form_data_provider:
-    class: 'Axelweb\AwContentFeed\Form\GeneralFormDataProvider'
+  # Content Feed Item form data provider
+  axelweb.awcontentfeed.form.content_feed_item_form_data_provider:
+    class: 'Axelweb\AwContentFeed\Form\ContentFeedItemFormDataProvider'
     arguments:
-      - '@axelweb.awcontentfeed.form.general_data_configuration'
+      - '@axelweb.awcontentfeed.repository.content_feed_item'
+      - null
 
-  # General form data handler
-  axelweb.awcontentfeed.form.general_form_data_handler:
+  # Content Feed Item form data handler
+  axelweb.awcontentfeed.form.content_feed_item_form_data_handler:
     class: 'PrestaShop\PrestaShop\Core\Form\Handler'
     arguments:
       - '@form.factory'
       - '@prestashop.core.hook.dispatcher'
-      - '@axelweb.awcontentfeed.form.general_form_data_provider'
-      - 'Axelweb\AwContentFeed\Form\GeneralFormType'
+      - '@axelweb.awcontentfeed.form.content_feed_item_form_data_provider'
+      - 'Axelweb\AwContentFeed\Form\ContentFeedItemFormType'
       - 'AwContentFeed'
